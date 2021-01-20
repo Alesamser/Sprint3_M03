@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
     public static void main(String[] args) {
     String agenda[]; //Array per a guardar els cognoms
-    int tamany = 20; //Tamany de l'array
+    final int TAMANY = 20; //Tamany de l'array
     agenda = new String[tamany]; //Assignar el tamany a l'array
     int nAlumnes = 0; //Numero d'alumnes
     agenda[0]= "Muñoz López";
