@@ -20,17 +20,21 @@ public class Menu {
                     case 1: System.out.println("Inserir");
                     break;
                     case 2: 
-                    String nombuscar=teclat.next();
-                    Boolean queDir=true;    
-                    for(int i=0;i<nAlumnes;i++){
-                         if(nombuscar.compareTo(agenda[i])==0){
-                            queDir=false;
-                            System.out.println(nombuscar + " és troba en la posició "+ (i+1));
-                            }
-                     }
+                    if(nAlumnes==0){
+                        System.out.println("No hi ha cap element en la llista");
+                    }else{
+                        String nombuscar=teclat.next();
+                        Boolean queDir=true;    
+                        for(int i=0;i<nAlumnes;i++){
+                             if(nombuscar.compareTo(agenda[i])==0){
+                                queDir=false;
+                                System.out.println(nombuscar + " és troba en la posició "+ (i+1));
+                                }
+                        }
                         if(queDir){ 
                          System.out.println("No hi ha cap nom com aquest");
                         }
+                    }
                     break;
                     case 3: System.out.println("Recuperar");
                     break;
