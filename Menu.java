@@ -4,7 +4,7 @@ public class Menu {
     public static void main(String[] args) {
         String agenda[]; //Array per a guardar els cognoms
         final int TAMANY = 20; //Tamany de l'array
-        agenda = new String[tamany]; //Assignar el tamany a l'array
+        agenda = new String[TAMANY]; //Assignar el tamany a l'array
         int nAlumnes = 0; //Numero d'alumnes
         agenda[0]= "Muñoz López";
         agenda[1]= "Carrillo López";
@@ -19,7 +19,18 @@ public class Menu {
                 switch (n){
                     case 1: System.out.println("Inserir");
                     break;
-                    case 2: System.out.println("Localitzar");
+                    case 2: 
+                    String nombuscar=teclat.next();
+                    Boolean queDir=true;    
+                    for(int i=0;i<nAlumnes;i++){
+                         if(nombuscar.compareTo(agenda[i])==0){
+                            queDir=false;
+                            System.out.println(nombuscar + " és troba en la posició "+ (i+1));
+                            }
+                     }
+                        if(queDir){ 
+                         System.out.println("No hi ha cap nom com aquest");
+                        }
                     break;
                     case 3: System.out.println("Recuperar");
                     break;
