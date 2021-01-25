@@ -85,7 +85,10 @@ public class Menu {
                     break;
                     case 7: System.out.println("PrimerDarrer");
                     break;
-                    case 8: System.out.println("Imprimir");
+                    case 8:
+                        for (int i=0; i<nAlumnes ; i++){
+                            System.out.println("La posició " + (1+i) + " perteneix a : " + agenda[i]);
+                        }
                     break;
                     case 9: System.out.println("9-Ordenar");
                     break;
