@@ -77,11 +77,11 @@ public class Menu {
                     break;
                     case 6:
                         System.out.println("Estas segur de borrar la llista? True/False");
-                         Scanner input=new Scanner(System.in);
-                          Boolean Segur=input.nextBoolean();
-                             if(Segur){
-                             nAlumnes=0;
-                                }
+                        Scanner input=new Scanner(System.in);
+                        Boolean Segur=input.nextBoolean();
+                        if(Segur){
+                            nAlumnes=0;
+                        }
                     break;
                     case 7: System.out.println("PrimerDarrer");
                     break;
