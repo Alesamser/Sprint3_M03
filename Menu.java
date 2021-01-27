@@ -24,14 +24,14 @@ public class Menu {
                         System.out.println("No hi ha cap element en la llista");
                     }else{
                         String nombuscar=teclat.next();
-                        Boolean queDir=true;    
+                        Boolean noTrobat=true;    
                         for(int i=0;i<nAlumnes;i++){
                              if(nombuscar.compareTo(agenda[i])==0){
-                                queDir=false;
+                                noTrobat=false;
                                 System.out.println(nombuscar + " és troba en la posició "+ (i+1));
                                 }
                         }
-                        if(queDir){ 
+                        if(noTrobat){ 
                          System.out.println("No hi ha cap nom com aquest");
                         }
                     }
@@ -84,13 +84,19 @@ public class Menu {
                     break;
                     case 6:
                         System.out.println("Estas segur de borrar la llista? True/False");
-                        Scanner input=new Scanner(System.in);
-                        Boolean Segur=input.nextBoolean();
+                        Boolean Segur=teclat.nextBoolean();
                         if(Segur){
                             nAlumnes=0;
                         }
                     break;
-                    case 7: System.out.println("PrimerDarrer");
+                    case 7: 
+                        System.out.println("Vols sapiguer la primera o ultima persona? P/U");
+                        String posicio=teclat.next();
+                        if(posicio.compareTo("P")==0){
+                            System.out.println(agenda[0]);
+                        }else if(posicio.compareTo("U")==0){
+                            System.out.println(agenda[nAlumnes-1]);
+                        }
                     break;
                     case 8:
                         for (int i=0; i<nAlumnes ; i++){
