@@ -36,7 +36,17 @@ public class Menu {
                         }
                     }
                     break;
-                    case 3: System.out.println("Recuperar");
+                    case 3:
+                        if (nAlumnes!=0){
+                        System.out.println("Introdueix la posició ");
+                        int p = teclat.nextInt();
+                            if (p<nAlumnes || p<=0){    
+                                System.out.println(agenda[p-1]);
+                            }
+                            else{
+                                System.out.println("Posició no valida.");
+                            }
+                        }
                     break;
                     case 4: 
                         if (nAlumnes!=0){
