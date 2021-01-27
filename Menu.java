@@ -103,7 +103,31 @@ public class Menu {
                             System.out.println("La posició " + (1+i) + " perteneix a : " + agenda[i]);
                         }
                     break;
-                    case 9: System.out.println("9-Ordenar");
+                    case 9: 
+                        if (nAlumnes>1 ){
+                        String memoria[];
+                        memoria = new String[nAlumnes];
+                        int contador;
+                        for (int i=0; i<nAlumnes; i++){
+                            contador=0;
+                            for (int j=0; j<nAlumnes; j++){
+                                int res = agenda[j].compareTo(agenda[i]);
+                                if (res<0){
+                                    contador++;
+                                }
+                            }
+                            memoria[contador] = agenda[i];
+                        }
+                        for(int i = 0; i<nAlumnes; i++){
+                            agenda[i] = memoria[i];
+                        }
+                        for(int i = 0; i<nAlumnes; i++){
+                            System.out.println(agenda[i]);
+                        }
+                    }
+                    else{
+                        System.out.println("No hi ha cap o sufucients alumnes a la llista.");
+                    }
                     break;
                     case 10: System.out.println("LocalitzarEnOrdenada");
                     break;
