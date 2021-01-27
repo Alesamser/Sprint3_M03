@@ -59,16 +59,13 @@ public class Menu {
                                 System.out.println("Estàs segur/a que vols eliminar l'alumne de la posició "+p+"?\n1 Per a sí       2 Per a no");
                                 int o = teclat.nextInt();
                                 if (o==1){
-                                    if (nAlumnes<20){
+                                    if (nAlumnes<TAMANY){
                                         for (int i = p-1;i<nAlumnes;i++){
                                             agenda[i]=agenda[i+1];
                                         }
-                                        nAlumnes--;
-                                        System.out.println("Alumne de la posició "+p+" borrat amb exit.");
                                     }
-                                    else{
-                                        nAlumnes--;
-                                    }
+                                    nAlumnes--;
+                                    System.out.println("Alumne de la posició "+p+" borrat amb exit.");
                                     System.out.println("Llista actualitzada:");
                                     for(int i = 0; i<nAlumnes;i++){
                                         System.out.println(agenda[i]);
