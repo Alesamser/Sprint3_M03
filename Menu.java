@@ -73,7 +73,7 @@ public class Menu {
                                 int o = teclat.nextInt(); //Variable que guarada l'opció
                                 //Comprova l'opció triada, si és positiva  fa el borrat i en cas contrari canel·la el borrat
                                 if (o==1){
-                                    if (nAlumnes<20){
+                                    if (nAlumnes<TAMANY){
                                         //Bucle que reorganitza l'array
                                         for (int i = p-1;i<nAlumnes;i++){
                                             agenda[i]=agenda[i+1];
