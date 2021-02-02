@@ -96,7 +96,42 @@ public class Menu {
                             System.out.println("No hi ha alumnes a la llista.");
                         }
                     break;
-                    case 5: System.out.println("SuprimirDada");
+                    case 5: 
+                        if (nAlumnes!=0){
+                            System.out.println("Quin alumne vols suprimir?");
+                            String cognomABorrar = teclat.nextLine();
+            
+                            System.out.println("Estàs segur/a que vols eliminar l'alumne "+cognomABorrar+"?\n1 Per a sí       2 Per a no");
+                            int borrar = teclat.nextInt();
+            
+                            if (borrar==1){
+                                for (int x = 0; x <nAlumnes ; x++)
+                                {
+                                    if  (cognomABorrar.compareTo(agenda[x])==0) 
+                                    {                           
+                                        if ((x+1)<nAlumnes){
+                                            for (int i = x;i<(nAlumnes-1);i++){
+                                                agenda[i]=agenda[i+1];
+                                            }
+                                        }
+                                        nAlumnes--;            
+                                    }
+                                }
+                                System.out.println( "\nLa llista actualitzada es:\n");
+            
+                                for(int i = 0; i<nAlumnes;i++){
+                                System.out.println(agenda[i]);
+                                }
+                            }
+                            else {
+                                System.out.println("No se borrara el alumne");
+            
+                            }               
+                        }  
+            
+                        else {
+                            System.out.println("No hi han alumnes");
+                        }
                     break;
                     case 6:
                         System.out.println("Estas segur de borrar la llista? True/False");
