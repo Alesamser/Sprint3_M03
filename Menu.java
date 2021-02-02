@@ -12,9 +12,9 @@ public class Menu {
         agenda[3]= "Muñoz Alonso";
         nAlumnes = 4;
         Scanner teclat = new Scanner(System.in);
-        int c = 1;
+        int c = 1; //Variable per a sortir del menu
             do{
-                System.out.println("Tria una opció:\n1-Inserir 2-Localitzar 3-Recuperar 4-Suprimir \n5-SuprimirDada 6-Anul·lar 7-PrimerDarrer 8-Imprimir \n9-Ordenar 10-LocalitzarEnOrdenada 11-SuprimirDadaEnOrdenada 12-Sortir");
+                System.out.println("Tria una opció:\n1-Inserir 2-Localitzar 3-Recuperar 4-Suprimir \n5-SuprimirDada 6-Anul·lar 7-PrimerDarrer 8-Imprimir \n9-Ordenar 10-Sortir");
                 int n = teclat.nextInt();
                 switch (n){
                     case 1: System.out.println("Inserir");
@@ -49,17 +49,30 @@ public class Menu {
                         }
                     break;
                     case 4: 
+                        /*
+                        Entrada --> Posició, agenda, nAlumnes 
+                        Sortida --> agenda, nAlumnes
+                        L'operació de suprimir suprimeix el cognom que hi hagi en la posició que introdueixi l'usuari
+                        */ 
+                        //Comprovem que hi ha alumnes a la llista
                         if (nAlumnes!=0){
                         System.out.println("Introdueix una posició.");
-                        int p = teclat.nextInt();
+                        int p = teclat.nextInt();   //Variable de posició
+                            //Comprovem que la posició sigui valida
                             if (p>nAlumnes || p<=0){
                                 System.out.println("Posició no valida.");
                             }
+                            /*
+                            Demana confirmació per a esborrar i en cas de una resposta positiva 
+                            esborra l'alumne que hi ha a la posició triada 
+                            */ 
                             else {
                                 System.out.println("Estàs segur/a que vols eliminar l'alumne de la posició "+p+"?\n1 Per a sí       2 Per a no");
-                                int o = teclat.nextInt();
+                                int o = teclat.nextInt(); //Variable que guarada l'opció
+                                //Comprova l'opció triada, si és positiva  fa el borrat i en cas contrari canel·la el borrat
                                 if (o==1){
-                                    if (nAlumnes<TAMANY){
+                                    if (nAlumnes<20){
+                                        //Bucle que reorganitza l'array
                                         for (int i = p-1;i<nAlumnes;i++){
                                             agenda[i]=agenda[i+1];
                                         }
@@ -67,6 +80,7 @@ public class Menu {
                                     nAlumnes--;
                                     System.out.println("Alumne de la posició "+p+" borrat amb exit.");
                                     System.out.println("Llista actualitzada:");
+                                    //Imprimim la llista despres del borrat
                                     for(int i = 0; i<nAlumnes;i++){
                                         System.out.println(agenda[i]);
                                     }
@@ -104,36 +118,43 @@ public class Menu {
                         }
                     break;
                     case 9: 
+                        /*
+                        Entrada --> agenda
+                        Sortida --> agenda ordenada
+                        El programa ordena lexicograficament els alumnes que hi hagi a la llista 
+                        */
+                        //Comprevem si hi ha suficicents alumnes a la llista per a ordenar en cas contrari informa a l'usuari
                         if (nAlumnes>1 ){
-                        String memoria[];
-                        memoria = new String[nAlumnes];
-                        int contador;
-                        for (int i=0; i<nAlumnes; i++){
-                            contador=0;
-                            for (int j=0; j<nAlumnes; j++){
-                                int res = agenda[j].compareTo(agenda[i]);
-                                if (res<0){
-                                    contador++;
+                            //Array on guardarem la nova posició dels cognoms
+                            String memoria[]; 
+                            memoria = new String[nAlumnes];
+                            int contador; //Variable on guardarem el numero de cops que uns cognoms van abans lexicograficament 
+                            //Comparem cada cognoms amb la resta per a veure en quina posició hauria d'estar, i despés els guarda a la memoria a la posició correcta
+                            for (int i=0; i<nAlumnes; i++){
+                                contador=0;
+                                for (int j=0; j<nAlumnes; j++){
+                                    int res = agenda[j].compareTo(agenda[i]);
+                                    if (res<0){
+                                        contador++;
+                                    }
                                 }
+                                memoria[contador] = agenda[i];
                             }
-                            memoria[contador] = agenda[i];
+                            //Pasem el nou ordre a la array principal
+                            for(int i = 0; i<nAlumnes; i++){
+                                agenda[i] = memoria[i];
+                            }
+                            //Mostrem el resultat final
+                            System.out.println("Llista ordenada:");
+                            for(int i = 0; i<nAlumnes; i++){
+                                System.out.println(agenda[i]);
+                            }
                         }
-                        for(int i = 0; i<nAlumnes; i++){
-                            agenda[i] = memoria[i];
+                        else{
+                            System.out.println("No hi ha cap o sufucients alumnes a la llista.");
                         }
-                        for(int i = 0; i<nAlumnes; i++){
-                            System.out.println(agenda[i]);
-                        }
-                    }
-                    else{
-                        System.out.println("No hi ha cap o sufucients alumnes a la llista.");
-                    }
                     break;
-                    case 10: System.out.println("LocalitzarEnOrdenada");
-                    break;
-                    case 11: System.out.println("SuprimirDadaEnOrdenada");
-                    break;
-                    case 12: System.out.println("Sortint del programa");
+                    case 10: System.out.println("Sortint del programa");
                     c=0;
                     break;
                     default: System.out.println("Opcio incorrecta");
