@@ -13,9 +13,11 @@ public class Menu {
         nAlumnes = 4;
         Scanner teclat = new Scanner(System.in);
         int c = 1; //Variable per a sortir del menu
+            //Bucle per a poder treballar sense que s'esborrin les dades fins qu no sortim del menu
             do{
+                //Mostrem per pantalla les opcions que té l'usuari
                 System.out.println("Tria una opció:\n1-Inserir 2-Localitzar 3-Recuperar 4-Suprimir \n5-SuprimirDada 6-Anul·lar 7-PrimerDarrer 8-Imprimir \n9-Ordenar 10-Sortir");
-                int n = teclat.nextInt();
+                int n = teclat.nextInt(); //Variable que llegeix l'opció triada
                 switch (n){
                     case 1: System.out.println("Inserir");
                     break;
@@ -113,8 +115,10 @@ public class Menu {
                         }
                     break;
                     case 8:
-                        for (int i=0; i<nAlumnes ; i++){
-                            System.out.println("La posició " + (1+i) + " perteneix a : " + agenda[i]);
+                        if (nAlumnes!=0){
+                            for (int i=0; i<nAlumnes ; i++){
+                                System.out.println("La posició " + (1+i) + " perteneix a : " + agenda[i]);
+                            }
                         }
                     break;
                     case 9: 
