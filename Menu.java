@@ -20,6 +20,28 @@ public class Menu {
                 int n = teclat.nextInt(); //Variable que llegeix l'opció triada
                 switch (n){
                     case 1: System.out.println("Inserir");
+                        
+                    if (nAlumnes == TAMANY){
+                    System.out.println("La llista esta plena");
+                        
+                    }else if (nAlumnes < TAMANY) {
+                    System.out.println("introdueix la posicio del array");
+                    int posicioInsertar = teclat.nextInt();
+
+                    System.out.println("introdueix el cognom a introduir");
+                    String cognom = teclat.next();
+
+                    for (i=nAlumnes; i>posicioInsertar; i--)
+                        agenda[i] = agenda[i-1];
+                        agenda[posicioInsertar] = cognom;
+                        nAlumnes++;
+
+                    } 
+
+                    System.out.println("llista actualitzada");
+                    for (i=0; i<nAlumnes; i++)
+                            System.out.println(agenda[i]);
+                    
                     break;
                     case 2: 
                     if(nAlumnes==0){
