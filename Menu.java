@@ -26,7 +26,7 @@ public class Menu {
                     System.out.println("introdueix el cognom a introduir");
                     String cognom = teclat.next();
 
-                    for (i=nAlumnes; i>posicioInsertar; i--)
+                    for (i=nAlumnes; i>posicioInsertar; i--){
                         agenda[i] = agenda[i-1];
                         agenda[posicioInsertar] = cognom;
                         nAlumnes++;
