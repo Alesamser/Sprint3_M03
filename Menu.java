@@ -6,11 +6,6 @@ public class Menu {
         final int TAMANY = 20; //Tamany de l'array
         agenda = new String[TAMANY]; //Assignar el tamany a l'array
         int nAlumnes = 0; //Numero d'alumnes
-        agenda[0]= "Muñoz López";
-        agenda[1]= "Carrillo López";
-        agenda[2]= "Gomez López";
-        agenda[3]= "Muñoz Alonso";
-        nAlumnes = 4;
         Scanner teclat = new Scanner(System.in);
         int c = 1; //Variable per a sortir del menu
             //Bucle per a poder treballar sense que s'esborrin les dades fins que no sortim del menu
