@@ -26,7 +26,7 @@ public class Menu {
                     System.out.println("introdueix el cognom a introduir");
                     String cognom = teclat.next();
 
-                    for (i=nAlumnes; i>posicioInsertar; i--){
+                    for (int i=nAlumnes; i>posicioInsertar; i--){
                         agenda[i] = agenda[i-1];
                         agenda[posicioInsertar] = cognom;
                         nAlumnes++;
@@ -34,7 +34,7 @@ public class Menu {
                     } 
 
                     System.out.println("llista actualitzada");
-                    for (i=0; i<nAlumnes; i++)
+                    for (int i=0; i<nAlumnes; i++)
                             System.out.println(agenda[i]);
                     
                     break;
